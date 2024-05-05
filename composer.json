@@ -1,12 +1,13 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "mmalessa/dummy-bundle": "dev-master",
         "symfony/console": "7.0.*",
         "symfony/dotenv": "7.0.*",
         "symfony/flex": "^2",
@@ -14,8 +15,12 @@
         "symfony/runtime": "7.0.*",
         "symfony/yaml": "7.0.*"
     },
-    "require-dev": {
-    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "mmalessa_packages/DummyBundle"
+        }
+    ],
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,

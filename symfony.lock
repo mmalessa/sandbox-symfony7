@@ -1,4 +1,7 @@
 {
+    "mmalessa/dummy-bundle": {
+        "version": "dev-master"
+    },
     "symfony/console": {
         "version": "7.0",
         "recipe": {

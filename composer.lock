@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e35f3617f3b9fbf8a1fd858641bffd14",
+    "content-hash": "0c1aad4a6df30cfd0b246d1ce73ab650",
     "packages": [
+        {
+            "name": "mmalessa/dummy-bundle",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "mmalessa_packages/DummyBundle",
+                "reference": "e0ef7d158fd1f86db6b93ad935d42b1dbc685245"
+            },
+            "require": {
+                "php": ">=8.3",
+                "symfony/framework-bundle": ">=6.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Mmalessa\\DummyBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Malessa",
+                    "homepage": "http://github.com/mmalessa"
+                }
+            ],
+            "description": "Some Dummy Bundle",
+            "homepage": "https://github.com/mmalessa/todo",
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "psr/cache",
             "version": "3.0.0",
@@ -2468,7 +2501,7 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
