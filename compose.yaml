@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  php:
+    build:
+      context: .docker/php
+      args:
+          - APP_USER_ID
+    restart: on-failure
+    user: ${APP_USER_ID}:${APP_GROUP_ID}
+    volumes:
+      - .docker/php/php.ini:/usr/local/etc/php/conf.d/app-overrides.ini
+      - ./:/app/
+      - appuser_home:/home/appuser
+    environment:
+      - PHP_IDE_CONFIG
+    working_dir: /app
+    tty: true
+    networks:
+        devapp:
+    extra_hosts:
+        - host.docker.internal:host-gateway
+
+networks:
+  devapp:
+    name: devapp
+
+volumes:
+  appuser_home:
