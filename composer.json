@@ -1,32 +1,29 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "mmalessa/dummy-bundle": "dev-master",
-        "symfony/console": "7.0.*",
-        "symfony/dotenv": "7.0.*",
+        "baldinof/roadrunner-bundle": "^3.3",
+        "spiral/roadrunner": "^2025.1",
+        "spiral/roadrunner-cli": "^2.7",
+        "symfony/console": "7.3.*",
+        "symfony/dotenv": "7.3.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.0.*",
-        "symfony/runtime": "7.0.*",
-        "symfony/yaml": "7.0.*"
+        "symfony/framework-bundle": "7.3.*",
+        "symfony/runtime": "7.3.*",
+        "symfony/yaml": "7.3.*"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "mmalessa_packages/DummyBundle"
-        }
-    ],
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
             "symfony/flex": true,
             "symfony/runtime": true
         },
+        "bump-after-update": true,
         "sort-packages": true
     },
     "autoload": {
@@ -67,7 +64,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.0.*"
+            "require": "7.3.*"
         }
     }
 }
