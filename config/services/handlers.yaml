@@ -2,3 +2,5 @@ services:
     App\Application\Handler\:
         resource: '%kernel.project_dir%/src/Application/Handler/*'
         autoconfigure: true
+        bind:
+            $logger: '@monolog.logger.magic'
