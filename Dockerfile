@@ -9,7 +9,7 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 
 RUN set -eux; \
     install-php-extensions \
-    zip pcntl intl bcmath pdo pdo_pgsql rdkafka ds sockets \
+    zip pcntl intl bcmath pdo pdo_pgsql rdkafka ds sockets amqp \
     && rm -rf /tmp/*
 
 WORKDIR "/app"

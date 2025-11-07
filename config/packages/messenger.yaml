@@ -1,0 +1,19 @@
+framework:
+    messenger:
+        transports:
+            demo_transport:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: App\Infrastructure\Amqp\DemoSerializer
+                options:
+                    exchange:
+                        name: demo_messages
+                        type: topic
+                    queues:
+                        demo_queue:
+                            binding_keys:
+                                - '*'
+                retry_strategy:
+                    max_retries: 1
+                    delay: 1000
+                    multiplier: 2
+        routing:

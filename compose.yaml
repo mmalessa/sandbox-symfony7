@@ -12,36 +12,29 @@ services:
     volumes:
       - .docker/php/php.ini:/usr/local/etc/php/conf.d/app-overrides.ini
       - ./:/app/
-      - appuser_home:/home/appuser;
+      - home_appuser:/home/appuser/
     environment:
       PHP_IDE_CONFIG: "serverName=dev"
     working_dir: /app
     tty: true
     networks:
-        devapp:
+      devapp:
     extra_hosts:
         - host.docker.internal:host-gateway
 
   rabbitmq:
     image: rabbitmq:4.2.0-management
-    container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
     restart: on-failure
     ports:
       - "5672:5672"
       - "15672:15672"
-    networks:
-      devapp:
     volumes:
       - rabbitmq_mnesia:/var/lib/rabbitmq/mnesia
-    healthcheck:
-      test: rabbitmq-diagnostics check_port_connectivity
-      start_period: 60s
-      interval: 30s
-      timeout: 10s
-      retries: 3
     environment:
       RABBITMQ_DEFAULT_USER: demo
       RABBITMQ_DEFAULT_PASS: demo
+    networks:
+      devapp:
 
   k6:
     image: grafana/k6
@@ -55,5 +48,5 @@ networks:
     name: devapp
 
 volumes:
-  appuser_home:
+  home_appuser:
   rabbitmq_mnesia:

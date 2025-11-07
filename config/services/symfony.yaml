@@ -1,0 +1,5 @@
+services:
+    # Magic Reset Lever
+    App\Infrastructure\Symfony\MagicResetLever:
+        autoconfigure: true
+        autowire: true

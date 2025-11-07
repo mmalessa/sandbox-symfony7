@@ -1,0 +1,4 @@
+services:
+    App\UI\Cli\:
+        resource: '%kernel.project_dir%/src/UI/Cli'
+        autoconfigure: true
