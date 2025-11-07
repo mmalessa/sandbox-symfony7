@@ -1,0 +1,9 @@
+services:
+    Symfony\Bridge\Monolog\Handler\ElasticsearchLogstashHandler:
+        arguments:
+            $endpoint: "http://elasticsearch:9200"
+            $index: "symfony-logs"
+            $client: null
+            $level: !php/enum Monolog\Level::Debug
+            $bubble: true
+            $elasticsearchVersion: '8.19.6'

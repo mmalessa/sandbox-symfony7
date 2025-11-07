@@ -10,6 +10,10 @@ monolog:
             channels: ["!event", "!doctrine", "!console", "!messenger"]
             verbosity_levels:
                 VERBOSITY_NORMAL: debug
+        elastic:
+            type: service
+            id: Symfony\Bridge\Monolog\Handler\ElasticsearchLogstashHandler
+            channels: "magic"
 
 #when@dev:
 #    monolog:

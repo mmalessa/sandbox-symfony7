@@ -36,6 +36,45 @@ services:
     networks:
       devapp:
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.2.0
+#    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.6
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+      - .docker/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      devapp:
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.2.0
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    networks:
+      devapp:
+
+  grafana:
+    image: grafana/grafana:12.2
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3000:3000"
+    depends_on:
+      - elasticsearch
+    volumes:
+      - grafana_data:/var/lib/grafana
+
   k6:
     image: grafana/k6
     volumes:
@@ -50,3 +89,5 @@ networks:
 volumes:
   home_appuser:
   rabbitmq_mnesia:
+  es_data:
+  grafana_data:
