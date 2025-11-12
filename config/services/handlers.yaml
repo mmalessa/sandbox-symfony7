@@ -4,3 +4,4 @@ services:
         autoconfigure: true
         bind:
             $logger: '@monolog.logger.magic'
+            $magicResetLever: '@App\Infrastructure\Symfony\MagicResetLever'
