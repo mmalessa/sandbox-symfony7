@@ -1,0 +1,8 @@
+services:
+
+    App\UI\Http\:
+        resource: '%kernel.project_dir%/src/UI/Http'
+        tags: ['controller.service_arguments']
+        bind:
+            $dummyReportFactory: '@App\Infrastructure\Report\DummyReportFactory'
+            $dummyReportGenerator: '@App\Infrastructure\Report\DummyReportGenerator'

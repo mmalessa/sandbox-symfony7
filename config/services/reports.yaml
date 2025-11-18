@@ -1,0 +1,9 @@
+services:
+
+    App\Infrastructure\Report\DummyReportFactory:
+        shared: false
+
+    App\Infrastructure\Report\DummyReportGenerator:
+        shared: true
+        arguments:
+            $dummyReportFactory: '@App\Infrastructure\Report\DummyReportFactory'
